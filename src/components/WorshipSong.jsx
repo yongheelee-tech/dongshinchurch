@@ -21,7 +21,7 @@ export default function WorshipSong() {
             <p className="text-white text-xs md:text-sm mb-4 md:mb-6">7월의 새찬양</p>
             
             {/* Bottom-Left Large Text */}
-            <h2 className="text-white text-2xl md:text-4xl lg:text-5xl mb-6 md:mb-8 leading-tight font-bold">
+            <h2 className="text-white text-3xl md:text-3xl lg:text-4xl mb-6 md:mb-8 leading-tight font-bold">
               모든걸음 되시네
             </h2>
             

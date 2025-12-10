@@ -11,16 +11,16 @@ export default function About() {
             <p className="text-gray-400 text-xs md:text-sm mb-6 md:mb-8">남가주동신교회는...</p>
             
             {/* Main Title */}
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-black mb-6 leading-tight max-w-2xl">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-6 leading-tight max-w-2xl">
               하나님의 사랑에 뿌리내리고,
               <br />
-              부흥으로 세상을 변화시키는
-              <br />
-              교회
+              부흥으로 세상을 변화시키는 교회
+
+            
             </h2>
             
             {/* Body Paragraph */}
-            <p className="text-gray-700 leading-relaxed mb-8 text-sm md:text-base max-w-2xl">
+            <p className="text-gray-700 leading-relaxed mb-8 text-sm md:text-base max-w-xl">
               모든 그리스도인은 공동체 안에서 살아가도록 지음 받았습니다. 하나님은 우리가 혼자가 아니라 함께 믿음의 길을 걷기를 원하십니다. 동신교회는 예수 그리스도를 예배하는 공동체로, 하늘의 부흥이 이 땅 가운데 임할 때까지 모든 심령이 불타오르기를 갈망합니다. 지금 우리는 인류 역사상 가장 위대한 부흥의 문턱에 서 있습니다. 하나님의 임재로 개인과 도시와 열방에 그분의 나라가 확장되는 여정에 함께 하십시오.
             </p>
             

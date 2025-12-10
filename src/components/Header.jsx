@@ -43,11 +43,60 @@ export default function Header() {
         'DSCP (English Worship)'
       ]
     },
-    { text: '다음세대', hasDropdown: true },
-    { text: '새가족', hasDropdown: true },
-    { text: '교구', hasDropdown: true },
-    { text: '훈련 및 사역', hasDropdown: true },
-    { text: '동신소식', hasDropdown: true },
+    { 
+      text: '다음세대', 
+      hasDropdown: true,
+      dropdownItems: [
+        'New Born - 자모부',
+        'Infant - 영아부',
+        'Toddler - 유아부',
+        'Kinder - 유치부',
+        'Elem (Lower) - 유년부',
+        'Elem (Upper) - 초등부',
+        'Youth (Jr. High) - 중등부',
+        'Youth (High) - 고등부',
+        'E-College - 영어대학부',
+        '청년부',
+        '청장년부',
+        '한국학교',
+        '동신프리스쿨'
+      ]
+    },
+    { 
+      text: '새가족', 
+      hasDropdown: true,
+      dropdownItems: [
+        '새신자 등록안내',
+        '새신자 온라인 등록'
+      ]
+    },
+    { 
+      text: '교구', 
+      hasDropdown: true,
+      dropdownItems: [
+        '교구 안내',
+        '교구 신청'
+      ]
+    },
+    { 
+      text: '훈련 및 사역', 
+      hasDropdown: true,
+      dropdownItems: [
+        '훈련 안내',
+        '사역 안내',
+        '사역 신청'
+      ]
+    },
+    { 
+      text: '동신소식', 
+      hasDropdown: true,
+      dropdownItems: [
+        '금주의 주보',
+        '사진 게시판',
+        '행사 & 광고',
+        '중보기도 신청/응답'
+      ]
+    },
     { text: '온라인헌금', hasDropdown: false },
   ]
 

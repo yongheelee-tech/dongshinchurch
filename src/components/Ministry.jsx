@@ -14,12 +14,12 @@ export default function Ministry() {
         
         {/* Text Overlay - Left side */}
         <div className="absolute inset-0 flex items-center z-10">
-          <div className="container mx-auto px-4 md:px-[100px] text-left max-w-5xl">
+          <div className="container mx-auto px-4 md:px-[100px] text-left max-w-54xl">
             {/* Small Text */}
             <p className="text-white text-xs md:text-sm mb-4 md:mb-6">동신교회 사역</p>
             
             {/* Large Text */}
-            <h2 className="text-white text-2xl md:text-4xl lg:text-5xl mb-6 md:mb-8 leading-tight font-bold">
+            <h2 className="text-white text-2xl md:text-3xl lg:text-4xl mb-6 md:mb-8 leading-tight font-bold">
               하나님께서 우리 안에서 이루시는 일에
               <br />
               당신도 함께할 수 있습니다.

@@ -31,7 +31,7 @@ export default function Hero() {
           {/* Button */}
           <a
             href="https://www.youtube.com/channel/UCXx5-tGvD4EGZamQxCV5MJw"
-            className="inline-block bg-primary text-white px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold rounded hover:bg-opacity-90 transition-all duration-200 shadow-lg"
+            className="inline-block bg-primary text-white px-6 md:px-8 py-3 md:py-4 rounded hover:bg-opacity-90 transition-all text-sm md:text-base font-semibold"
           >
             실시간 설교 보기
           </a>
