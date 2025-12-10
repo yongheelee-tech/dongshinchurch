@@ -1,12 +1,26 @@
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 import aboutImage from '../../img/남가주동신교회는.png'
 
 export default function About() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
+
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section ref={ref} className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 md:px-[100px]">
         <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-center">
           {/* Left Column - 60% width (3 columns) */}
-          <div className="md:col-span-3">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+            transition={{
+              duration: 0.6,
+              delay: 0.1,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="md:col-span-3"
+          >
             {/* Header */}
             <p className="text-gray-400 text-xs md:text-sm mb-6 md:mb-8">남가주동신교회는...</p>
             
@@ -31,16 +45,25 @@ export default function About() {
             >
               동신 소식 보기
             </a>
-          </div>
+          </motion.div>
           
           {/* Right Column - 40% width (2 columns) */}
-          <div className="md:col-span-2">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+            transition={{
+              duration: 0.6,
+              delay: 0.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="md:col-span-2"
+          >
             <img 
               src={aboutImage} 
               alt="Church Service" 
               className="w-full h-auto rounded-md shadow-lg object-cover" 
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

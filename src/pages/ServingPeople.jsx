@@ -1,3 +1,5 @@
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
@@ -31,9 +33,46 @@ export default function ServingPeople() {
     { name: '김혜원 전도사', englishName: 'Kim Hye-won', district: '2교구', committee: '선교위원회', phone: '310-596-0367' },
   ]
 
-  const PersonCard = ({ person }) => {
+  // Animated Section Component
+  const AnimatedSection = ({ title, children }) => {
+    const ref = useRef(null)
+    const isInView = useInView(ref, { once: true, amount: 0.1 })
+
     return (
-      <div className="flex flex-col items-center w-full">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 24 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+        transition={{
+          duration: 0.6,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+        <h2 className="text-2xl md:text-4xl font-bold text-black mb-8">
+          {title}
+        </h2>
+        {children}
+      </motion.div>
+    )
+  }
+
+  const PersonCard = ({ person, index }) => {
+    const ref = useRef(null)
+    const isInView = useInView(ref, { once: true, amount: 0.2 })
+    const delay = index * 0.1
+
+    return (
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 24 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+        transition={{
+          duration: 0.6,
+          delay,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="flex flex-col items-center w-full"
+      >
         {/* Headshot with rounded top corners and bright blue background */}
         <div className="w-full aspect-square bg-blue-400 rounded-t-lg flex items-center justify-center overflow-hidden">
           <div className="w-full h-full bg-blue-400"></div>
@@ -44,13 +83,27 @@ export default function ServingPeople() {
           <p className="text-xs md:text-sm text-white mb-2">{person.district}, {person.committee}</p>
           <p className="text-xs md:text-sm text-blue-400">{person.phone}</p>
         </div>
-      </div>
+      </motion.div>
     )
   }
 
-  const AssociatePastorCard = ({ person }) => {
+  const AssociatePastorCard = ({ person, index }) => {
+    const ref = useRef(null)
+    const isInView = useInView(ref, { once: true, amount: 0.2 })
+    const delay = index * 0.1
+
     return (
-      <div className="flex flex-col items-start w-full">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 24 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+        transition={{
+          duration: 0.6,
+          delay,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="flex flex-col items-start w-full"
+      >
         {/* Headshot with rounded corners and bright blue background */}
         <div className="w-full aspect-square bg-blue-400 rounded-lg flex items-center justify-center overflow-hidden mb-4">
           <div className="w-full h-full bg-blue-400"></div>
@@ -61,7 +114,7 @@ export default function ServingPeople() {
           <p className="text-xs md:text-sm text-gray-600 mb-1">{person.district}, {person.committee}</p>
           <p className="text-xs md:text-sm text-gray-600">{person.phone}</p>
         </div>
-      </div>
+      </motion.div>
     )
   }
 
@@ -74,40 +127,31 @@ export default function ServingPeople() {
         <div className="container mx-auto px-4 md:px-[100px]">
           <div className="space-y-12 md:space-y-16">
             {/* 부목사 Section */}
-            <div>
-              <h2 className="text-2xl md:text-4xl font-bold text-black mb-8">
-                부목사
-              </h2>
+            <AnimatedSection title="부목사">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
                 {associatePastors.map((person, index) => (
-                  <AssociatePastorCard key={index} person={person} />
+                  <AssociatePastorCard key={index} person={person} index={index} />
                 ))}
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* 교육부 Section */}
-            <div>
-              <h2 className="text-2xl md:text-4xl font-bold text-black mb-8">
-                교육부
-              </h2>
+            <AnimatedSection title="교육부">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
                 {educationDept.map((person, index) => (
-                  <AssociatePastorCard key={index} person={person} />
+                  <AssociatePastorCard key={index} person={person} index={index} />
                 ))}
               </div>
-            </div>
+            </AnimatedSection>
 
             {/* 사역디렉터 Section */}
-            <div>
-              <h2 className="text-2xl md:text-4xl font-bold text-black mb-8">
-                사역디렉터
-              </h2>
+            <AnimatedSection title="사역디렉터">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
                 {ministryDirector.map((person, index) => (
-                  <AssociatePastorCard key={index} person={person} />
+                  <AssociatePastorCard key={index} person={person} index={index} />
                 ))}
               </div>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>

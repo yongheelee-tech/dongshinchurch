@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import heroImage from '../../img/herobanner.png'
 
 export default function Hero() {
@@ -16,7 +17,15 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative container mx-auto px-4 md:px-[100px] py-16 md:py-24 z-10">
-        <div className="max-w-2xl">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="max-w-2xl"
+        >
           {/* Korean Text */}
           <p className="text-white text-base md:text-lg lg:text-xl mb-4 md:mb-6 leading-relaxed">
             복음을 복음 되게 ㆍ 교회를 교회 되게 ㆍ 성도를 성도 되게
@@ -35,7 +44,7 @@ export default function Hero() {
           >
             실시간 설교 보기
           </a>
-        </div>
+        </motion.div>
       </div>
 
       {/* Slider controls */}

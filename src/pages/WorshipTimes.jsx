@@ -1,5 +1,53 @@
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+
+// Animated Section Component
+function AnimatedSection({ title, children, index }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.2,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      <h2 className="text-2xl md:text-4xl font-bold text-black mb-6">
+        {title}
+      </h2>
+      {children}
+    </motion.div>
+  )
+}
+
+// Animated Table Component
+function AnimatedTable({ children, delay = 0 }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+      transition={{
+        duration: 0.6,
+        delay: delay + 0.1,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="overflow-x-auto"
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 export default function WorshipTimes() {
   return (
@@ -13,11 +61,8 @@ export default function WorshipTimes() {
         <div className="container mx-auto px-4 md:px-[100px]">
           <div className="space-y-12 md:space-y-16">
               {/* 예배일정 Section */}
-              <div>
-                <h2 className="text-2xl md:text-4xl font-bold text-black mb-6">
-                  예배일정
-                </h2>
-                <div className="overflow-x-auto">
+              <AnimatedSection title="예배일정" index={0}>
+                <AnimatedTable delay={0.1}>
                   <table className="w-full border-collapse border border-gray-300">
                     <thead>
                       <tr className="border-b border-gray-300">
@@ -64,15 +109,12 @@ export default function WorshipTimes() {
                       </tr>
                     </tbody>
                   </table>
-                </div>
-              </div>
+                </AnimatedTable>
+              </AnimatedSection>
 
               {/* 부서 및 정기모임 일정 Section */}
-              <div>
-                <h2 className="text-2xl md:text-4xl font-bold text-black mb-6">
-                  부서 및 정기모임 일정
-                </h2>
-                <div className="overflow-x-auto">
+              <AnimatedSection title="부서 및 정기모임 일정" index={1}>
+                <AnimatedTable delay={0.1}>
                   <table className="w-full border-collapse border border-gray-300">
                     <thead>
                       <tr className="border-b border-gray-300">
@@ -141,8 +183,8 @@ export default function WorshipTimes() {
                       </tr>
                     </tbody>
                   </table>
-                </div>
-              </div>
+                </AnimatedTable>
+              </AnimatedSection>
           </div>
         </div>
       </section>
