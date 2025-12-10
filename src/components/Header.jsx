@@ -130,8 +130,8 @@ export default function Header() {
             <div className="hidden lg:flex items-center space-x-6 xl:space-x-8 py-4 flex-1 justify-center relative z-40">
               {navLinks.map((link, index) => (
                 <div key={index} className="relative group z-40" style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
-                  <a
-                    href="#"
+                  <Link
+                    to={link.text === '다음세대' ? '/next-generation' : '#'}
                     className="text-black font-bold relative flex items-center hover:text-primary transition-colors z-40"
                   >
                     {link.text}
@@ -140,13 +140,16 @@ export default function Header() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                       </svg>
                     )}
-                  </a>
+                  </Link>
                   {/* Dropdown Menu */}
                   {link.hasDropdown && link.dropdownItems && (
                     <div className="absolute left-0 top-full w-48 bg-white shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                       <div className="py-2">
                         {link.dropdownItems.map((item, itemIndex) => {
-                          const route = dropdownRoutes[item] || '#'
+                          // If it's 다음세대 dropdown, all items link to next-generation page
+                          const route = link.text === '다음세대' 
+                            ? '/next-generation' 
+                            : (dropdownRoutes[item] || '#')
                           return (
                             <Link
                               key={itemIndex}
