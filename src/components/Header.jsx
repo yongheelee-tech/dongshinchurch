@@ -22,6 +22,48 @@ export default function Header() {
     // Add more specific routes here as pages are created
   }
 
+  // Dropdown item descriptions for subtitles
+  const dropdownDescriptions = {
+    '담임목사 인사말': '담임목사님의 인사말',
+    '예배시간': '주일 및 주중 예배 일정 안내',
+    '교회연혁': '교회의 역사와 발자취',
+    '섬기는 사람들': '교회를 섬기는 목사님들과 사역자들',
+    '오시는 길': '교회 위치 및 주차 안내',
+    '주일설교': '주일 예배 설교 영상',
+    '수요경배와 찬양 설교': '수요일 경배와 찬양 설교',
+    '새벽설교': '새벽 기도회 설교',
+    '동신찬양팀 찬양': '동신찬양팀의 찬양 영상',
+    '1부 호산나 성가대': '1부 예배 성가대 찬양',
+    '2부 할렐루야 성가대': '2부 예배 성가대 찬양',
+    '3부 임마누엘 성가대': '3부 예배 성가대 찬양',
+    '영어 대학부 예배': '영어 대학부 예배 영상',
+    '청년부 예배': '청년부 예배 영상',
+    'DSCP (English Worship)': 'English Worship Service',
+    'New Born - 자모부': '신생아와 어머니를 위한 사역',
+    'Infant - 영아부': '13-30개월 영아를 위한 사역',
+    'Toddler - 유아부': '30-48개월 유아를 위한 사역',
+    'Kinder - 유치부': '유치부 사역',
+    'Elem (Lower) - 유년부': '1-3학년을 위한 사역',
+    'Elem (Upper) - 초등부': '4-6학년을 위한 사역',
+    'Youth (Jr. High) - 중등부': '중학생을 위한 사역',
+    'Youth (High) - 고등부': '고등학생을 위한 사역',
+    'E-College - 영어대학부': '영어권 대학생을 위한 사역',
+    '청년부': '청년 세대를 위한 사역',
+    '청장년부': '청장년 세대를 위한 사역',
+    '동신프리스쿨': '유아 교육 프로그램',
+    '새신자 등록안내': '새신자 등록 방법 안내',
+    '새신자 온라인 등록': '온라인으로 새신자 등록하기',
+    '교구 안내': '교구 시스템 안내',
+    '교구 신청': '교구 신청하기',
+    '훈련 안내': '제자훈련 프로그램 안내',
+    '사역 안내': '다양한 사역 프로그램 안내',
+    '사역 신청': '사역 참여 신청하기',
+    '금주의 주보': '이번 주 교회 소식',
+    '사진 게시판': '교회 행사 사진 갤러리',
+    '행사 & 광고': '교회 행사 및 공지사항',
+    '중보기도 신청/응답': '중보기도 요청 및 응답'
+  }
+
   const navLinks = [
     { 
       text: '교회소개', 
@@ -65,7 +107,6 @@ export default function Header() {
         'E-College - 영어대학부',
         '청년부',
         '청장년부',
-        '한국학교',
         '동신프리스쿨'
       ]
     },
@@ -115,9 +156,8 @@ export default function Header() {
           <div className="flex justify-end items-center text-sm">
             <a href="#" className="text-white hover:underline">동신프리스쿨</a>
             <span className="text-white mx-3">|</span>
-            <a href="#" className="text-white hover:underline">DSYM 대학청년부</a>
-            <span className="text-white mx-3">|</span>
-            <a href="#" className="text-white hover:underline">동신한국학교</a>
+            <a href="#" className="text-white hover:underline">DSYAM 대학청년부</a>
+          
           </div>
         </div>
       </div>
@@ -150,8 +190,8 @@ export default function Header() {
                   </Link>
                   {/* Dropdown Menu */}
                   {link.hasDropdown && link.dropdownItems && (
-                    <div className="absolute left-0 top-full w-48 bg-white shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                      <div className="py-2">
+                    <div className="absolute left-0 top-full w-80 bg-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden">
+                      <div className="p-4">
                         {link.dropdownItems.map((item, itemIndex) => {
                           // If it's 다음세대 dropdown, check for specific routes first, then default to next-generation
                           let route = '#'
@@ -160,13 +200,32 @@ export default function Header() {
                           } else {
                             route = dropdownRoutes[item] || '#'
                           }
+                          const description = dropdownDescriptions[item] || ''
+                          
                           return (
                             <Link
                               key={itemIndex}
                               to={route}
-                              className="block px-4 py-2 text-black hover:bg-gray-100 transition-colors text-sm"
+                              className="flex items-center justify-between py-4 px-2 rounded-lg hover:bg-gray-50 transition-colors group"
                             >
-                              {item}
+                              {/* Text Content */}
+                              <div className="flex-1 min-w-0 pr-4">
+                                <p className="font-bold text-[#607d8b] text-base mb-1 group-hover:text-primary transition-colors">
+                                  {item}
+                                </p>
+                                {description && (
+                                  <p className="text-sm text-[#5A5A5A] leading-relaxed">
+                                    {description}
+                                  </p>
+                                )}
+                              </div>
+                              
+                              {/* Arrow Button - Rounded Square */}
+                              <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-[#E6E8EB] flex items-center justify-center group-hover:bg-gray-200 transition-colors">
+                                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                              </div>
                             </Link>
                           )
                         })}
