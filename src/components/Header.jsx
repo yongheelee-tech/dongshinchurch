@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../img/dongshinlogo.svg'
+import logo from '../../img/dslogo.svg'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -122,7 +122,7 @@ export default function Header() {
             {/* Logo */}
             <div className="flex items-center py-4">
               <Link to="/" className="flex items-center">
-                <img src={logo} alt="남가주 동신교회" className="h-12 md:h-20 w-auto object-contain block" />
+                <img src={logo} alt="남가주 동신교회" className="h-12 md:h-16 w-auto object-contain block" />
               </Link>
             </div>
 

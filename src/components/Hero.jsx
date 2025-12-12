@@ -1,18 +1,29 @@
 import { motion } from 'framer-motion'
-import heroImage from '../../img/herobanner.png'
+import heroVideo from '../../img/herovideo.mp4'
 
 export default function Hero() {
   return (
     <section className="relative -mt-px min-h-[600px] md:min-h-[700px] flex items-center">
-      {/* Background Image with Overlay */}
+      {/* Background Video with Overlay */}
       <div className="absolute inset-0 bg-secondary">
-        <img
-          src={heroImage}
-          alt="Worship Service"
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-         
-        />
-        <div className="absolute inset-0 bg-secondary bg-opacity-50"></div>
+        >
+          <source src={heroVideo} type="video/mp4" />
+          {/* Fallback image if video doesn't load */}
+          <img
+            src="/img/herobanner.png"
+            alt="Worship Service"
+            className="w-full h-full object-cover"
+          />
+        </video>
+        {/* Dark gradient overlay on top for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/20"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
       </div>
 
       {/* Content */}
@@ -48,11 +59,7 @@ export default function Hero() {
       </div>
 
       {/* Slider controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-        <button className="w-2 h-2 rounded-full bg-white"></button>
-        <button className="w-2 h-2 rounded-full bg-white opacity-50"></button>
-        <button className="w-2 h-2 rounded-full bg-white opacity-50"></button>
-      </div>
+      
     </section>
   )
 }
