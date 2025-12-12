@@ -5,6 +5,7 @@ import logo from '../../img/dslogo.svg'
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false)
+  const [expandedMenus, setExpandedMenus] = useState({})
 
   // Dropdown item routes mapping
   const dropdownRoutes = {
@@ -13,6 +14,12 @@ export default function Header() {
     '교회연혁': '/church-history',
     '섬기는 사람들': '/serving-people',
     '오시는 길': '/directions'
+  }
+
+  // 다음세대 dropdown item routes mapping
+  const nextGenerationRoutes = {
+    'Toddler - 유아부': '/toddler',
+    // Add more specific routes here as pages are created
   }
 
   const navLinks = [
@@ -146,10 +153,13 @@ export default function Header() {
                     <div className="absolute left-0 top-full w-48 bg-white shadow-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                       <div className="py-2">
                         {link.dropdownItems.map((item, itemIndex) => {
-                          // If it's 다음세대 dropdown, all items link to next-generation page
-                          const route = link.text === '다음세대' 
-                            ? '/next-generation' 
-                            : (dropdownRoutes[item] || '#')
+                          // If it's 다음세대 dropdown, check for specific routes first, then default to next-generation
+                          let route = '#'
+                          if (link.text === '다음세대') {
+                            route = nextGenerationRoutes[item] || '/next-generation'
+                          } else {
+                            route = dropdownRoutes[item] || '#'
+                          }
                           return (
                             <Link
                               key={itemIndex}
@@ -223,12 +233,65 @@ export default function Header() {
           {/* Mobile Navigation Menu */}
           {mobileMenuOpen && (
             <div className="pb-4 lg:hidden">
-              <div className="flex flex-col space-y-2">
-                {navLinks.map((link, index) => (
-                  <a key={index} href="#" className="text-black py-2 hover:underline">
-                    {link.text}
-                  </a>
-                ))}
+              <div className="flex flex-col space-y-1">
+                {navLinks.map((link, index) => {
+                  const isExpanded = expandedMenus[index]
+                  return (
+                    <div key={index} className="border-b border-gray-200 last:border-b-0">
+                      {link.hasDropdown && link.dropdownItems ? (
+                        <>
+                          <button
+                            onClick={() => setExpandedMenus(prev => ({
+                              ...prev,
+                              [index]: !prev[index]
+                            }))}
+                            className="w-full flex items-center justify-between text-black py-3 hover:text-primary transition-colors font-semibold"
+                          >
+                            <span>{link.text}</span>
+                            <svg
+                              className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                          </button>
+                          {isExpanded && (
+                            <div className="pl-4 pb-2 space-y-1">
+                              {link.dropdownItems.map((item, itemIndex) => {
+                                let route = '#'
+                                if (link.text === '다음세대') {
+                                  route = nextGenerationRoutes[item] || '/next-generation'
+                                } else {
+                                  route = dropdownRoutes[item] || '#'
+                                }
+                                return (
+                                  <Link
+                                    key={itemIndex}
+                                    to={route}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="block py-2 text-gray-700 hover:text-primary transition-colors text-sm"
+                                  >
+                                    {item}
+                                  </Link>
+                                )
+                              })}
+                            </div>
+                          )}
+                        </>
+                      ) : (
+                        <Link
+                          to={link.text === '다음세대' ? '/next-generation' : '#'}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block text-black py-3 hover:text-primary transition-colors font-semibold"
+                        >
+                          {link.text}
+                        </Link>
+                      )}
+                    </div>
+                  )
+                })}
               </div>
             </div>
           )}
