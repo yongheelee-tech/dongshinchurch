@@ -43,7 +43,7 @@ export default function Hero() {
           </p>
 
           {/* English Text */}
-          <h1 className="font-gotham text-4xl md:text-6xl lg:text-7xl xl:text-8xl text-white mb-6 md:mb-8 leading-tight whitespace-nowrap">
+          <h1 className="font-gotham text-4xl md:text-5xl lg:text-6xl xl:text-8xl text-white mb-6 md:mb-8 leading-tight whitespace-nowrap">
             <span className="font-light">not I, but </span>
             <span className="font-bold">Christ</span>
           </h1>

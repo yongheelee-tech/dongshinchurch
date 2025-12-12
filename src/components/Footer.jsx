@@ -1,4 +1,4 @@
-import logo from '../../img/footerlogo.svg'
+import logo from '../../img/dsfooterlogo.svg'
 
 export default function Footer() {
   return (
@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-8">
           {/* Left Column - 오시는 길 */}
           <div>
-            <img src={logo} alt="남가주 동신교회" className="h-24 md:h-24 w-auto mb-6" />
+            <img src={logo} alt="남가주 동신교회" className="h-14 md:h-16 w-auto mb-6" />
             <h4 className="text-lg font-semibold mb-4">오시는 길</h4>
             <div className="space-y-3 text-sm">
               <div>
@@ -52,7 +52,7 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">문의하기</h4>
             <div className="space-y-2 text-sm">
-              <p><span className="font-semibold">T:</span> 714. 680. 9556</p>
+              <p><span className="font-semibold">T:</span> 714-680-9556</p>
               <p><span className="font-semibold">E:</span> office@dongshinchurch.com</p>
             </div>
           </div>
