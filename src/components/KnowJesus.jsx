@@ -27,7 +27,7 @@ export default function KnowJesus() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-3xl lg:text-4xl font-bold text-black mb-4">예수님을 아시나요?</h2>
-          <p className="text-gray-700 leading-relaxed mb-8 text-sm md:text-base max-w-2xl mx-auto">
+          <p className="text-gray-700 leading-relaxed mb-8 text-base max-w-2xl mx-auto">
             체적인 치유나 영적인 돌봄이 필요하신가요?
             <br />
             하나님은 당신의 삶을 그분의 사랑과 능력으로 변화시키길 원하십니다.

@@ -77,7 +77,7 @@ function AnimatedParagraph({ children, index, className = '' }) {
         delay,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className={`text-base md:text-lg ${className}`}
+      className={`text-base ${className}`}
     >
       {children}
     </motion.p>

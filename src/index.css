@@ -68,7 +68,20 @@
   font-display: swap;
 }
 
+/* KimjungchulGothic Font Family */
+@font-face {
+  font-family: 'KimjungchulGothic';
+  src: url('./fonts/KimjungchulGothic-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   /* RixGo is now the default font family */
+  /* Body paragraphs and table cells use KimjungchulGothic */
+  p, td, th {
+    font-family: 'KimjungchulGothic', sans-serif;
+  }
 }
 

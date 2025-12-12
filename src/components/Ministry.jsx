@@ -1,6 +1,9 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
+// Use public path for better Vercel compatibility
+const ministryImage = '/img/사역.png'
+
 export default function Ministry() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
@@ -12,7 +15,7 @@ export default function Ministry() {
         {/* Background Image - Replace with your new image */}
         <div className="absolute inset-0 bg-gray-900">
           <img 
-            src="/img/사역.png" 
+            src={ministryImage} 
             alt="Ministry" 
             className="w-full h-full object-cover brightness-20" 
           />

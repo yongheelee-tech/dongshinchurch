@@ -173,7 +173,7 @@ function TimelineItem({ milestone, index, isLast }) {
         </h3>
 
         {/* Description */}
-        <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
+        <p className="text-base text-gray-700 leading-relaxed">
           {milestone.description}
         </p>
       </motion.div>

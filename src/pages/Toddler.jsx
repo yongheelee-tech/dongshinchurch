@@ -95,7 +95,7 @@ export default function Toddler() {
                 유아부
               </h1>
               
-              <p className="text-base md:text-lg text-black mb-8 leading-relaxed">
+              <p className="text-base text-black mb-8 leading-relaxed">
                 어린이들의 마음에 하나님과 이웃에 대한 사랑을 심어줍니다.
               </p>
               
@@ -240,3 +240,4 @@ export default function Toddler() {
     </div>
   )
 }
+

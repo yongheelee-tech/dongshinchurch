@@ -6,6 +6,7 @@ import ServingPeople from './pages/ServingPeople'
 import ChurchHistory from './pages/ChurchHistory'
 import NextGeneration from './pages/NextGeneration'
 import Toddler from './pages/Toddler'
+import Directions from './pages/Directions'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/church-history" element={<ChurchHistory />} />
         <Route path="/next-generation" element={<NextGeneration />} />
         <Route path="/toddler" element={<Toddler />} />
+        <Route path="/directions" element={<Directions />} />
       </Routes>
     </div>
   )
