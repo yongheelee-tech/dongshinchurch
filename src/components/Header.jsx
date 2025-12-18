@@ -164,9 +164,23 @@ export default function Header() {
       <div className="bg-primary py-2 relative">
         <div className="container mx-auto px-4 md:px-[100px]">
           <div className="flex justify-end items-center text-sm">
-            <a href="#" className="text-white hover:underline">동신프리스쿨</a>
+            <a
+              href="https://www.dspreschool.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-white hover:underline"
+            >
+              동신프리스쿨
+            </a>
             <span className="text-white mx-3">|</span>
-            <a href="#" className="text-white hover:underline">DSYAM 대학청년부</a>
+            <a
+              href="https://www.instagram.com/dongshinyam/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-white hover:underline"
+            >
+              DSYAM 대학청년부
+            </a>
           
           </div>
         </div>
