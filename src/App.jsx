@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import PastorGreeting from './pages/PastorGreeting'
 import WorshipTimes from './pages/WorshipTimes'
@@ -19,8 +20,51 @@ import YoungAdult from './pages/YoungAdult'
 import Adult from './pages/Adult'
 import KoreanSchool from './pages/KoreanSchool'
 import Preschool from './pages/Preschool'
+import { MINISTRIES } from './constants/ministries'
+
+function getMinistryTitle(ministryName) {
+  if (!ministryName) return ''
+  const parts = ministryName.split(' - ')
+  return (parts[1] || parts[0] || '').trim()
+}
 
 function App() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const CHURCH_NAME = '남가주 동신교회'
+    const TAGLINE = 'Not I, but Christ'
+    const HOME_TITLE = `${CHURCH_NAME} | ${TAGLINE}`
+
+    const normalizedPath =
+      location.pathname !== '/' && location.pathname.endsWith('/')
+        ? location.pathname.slice(0, -1)
+        : location.pathname
+
+    const ministryMatch = MINISTRIES.find((m) => m.route === normalizedPath)
+
+    const routeTitles = {
+      '/': CHURCH_NAME,
+      '/pastor-greeting': '담임목사 인사말',
+      '/worship-times': '예배시간',
+      '/serving-people': '섬기는 사람들',
+      '/church-history': '교회연혁',
+      '/next-generation': '다음세대',
+      '/directions': '오시는 길',
+    }
+
+    const pageTitle = ministryMatch ? getMinistryTitle(ministryMatch.name) : routeTitles[normalizedPath]
+
+    // Home: include tagline
+    if (normalizedPath === '/') {
+      document.title = HOME_TITLE
+      return
+    }
+
+    // Other pages: different from home (no tagline)
+    document.title = pageTitle ? `${pageTitle} | ${CHURCH_NAME}` : CHURCH_NAME
+  }, [location.pathname])
+
   return (
     <div className="font-sans">
       <Routes>
