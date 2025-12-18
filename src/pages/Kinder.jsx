@@ -5,7 +5,7 @@ export default function Kinder() {
     <MinistryTemplate
       activeId="kinder"
       title="유치부"
-      description="유치부 사역 소개 문구를 여기에 추가하세요."
+      description={'2부 예배: 9:30 AM\n3부 예배: 11:20 AM\n유치부실 Room 121-123'}
       ctaLabel="사역 신청하기"
       ctaHref="#"
       heroImageSrc="/img/kinder-classroom.jpg"

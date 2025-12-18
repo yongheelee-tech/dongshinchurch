@@ -5,7 +5,7 @@ export default function ElemLower() {
     <MinistryTemplate
       activeId="elem-lower"
       title="유년부"
-      description="유년부 사역 소개 문구를 여기에 추가하세요."
+      description={'2부 예배: 9:30 AM\n3부 예배: 11:20 AM\n유년부실 Room 124-125'}
       ctaLabel="사역 신청하기"
       ctaHref="#"
       heroImageSrc="/img/elem-lower-classroom.jpg"

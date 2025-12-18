@@ -15,7 +15,7 @@ export default function Toddler() {
     <MinistryTemplate
       activeId="toddler"
       title="유아부"
-      description="어린이들의 마음에 하나님과 이웃에 대한 사랑을 심어줍니다."
+      description={'2부 예배: 9:30 AM\n3부 예배: 11:20 AM\n유아부실 Room 111'}
       ctaLabel="사역 신청하기"
       ctaHref="#"
       heroImageSrc="/img/toddler-classroom.jpg"

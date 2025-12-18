@@ -5,7 +5,7 @@ export default function YouthHigh() {
     <MinistryTemplate
       activeId="youth-high"
       title="고등부"
-      description="고등부 사역 소개 문구를 여기에 추가하세요."
+      description={'2부 예배: 9:30 AM\n3부 예배: 11:20 AM\nDSCP Chapel'}
       ctaLabel="사역 신청하기"
       ctaHref="#"
       heroImageSrc="/img/youth-high-classroom.jpg"

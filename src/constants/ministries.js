@@ -14,4 +14,10 @@ export const MINISTRIES = [
   { id: 'preschool', name: '동신프리스쿨', route: '/preschool' },
 ]
 
+// Ministry tab (상단 탭바)에서는 다음 항목들을 제외합니다.
+// - 영어대학부, 청년부, 청장년부, 한국학교, 동신프리스쿨
+export const MINISTRY_TABS = MINISTRIES.filter(
+  (m) => !['ecollege', 'youngadult', 'adult', 'koreanschool', 'preschool'].includes(m.id),
+)
+
 

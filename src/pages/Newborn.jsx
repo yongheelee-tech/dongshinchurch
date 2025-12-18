@@ -5,7 +5,7 @@ export default function Newborn() {
     <MinistryTemplate
       activeId="newborn"
       title="자모부"
-      description="자모부 사역 소개 문구를 여기에 추가하세요."
+      description={'2부 예배: 9:30 AM\n3부 예배: 11:20 AM\n자모실 Room 202'}
       ctaLabel="사역 신청하기"
       ctaHref="#"
       heroImageSrc="/img/newborn-classroom.jpg"

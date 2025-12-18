@@ -5,7 +5,7 @@ export default function ElemUpper() {
     <MinistryTemplate
       activeId="elem-upper"
       title="초등부"
-      description="초등부 사역 소개 문구를 여기에 추가하세요."
+      description={'2부 예배: 9:30 AM\n3부 예배: 11:20 AM\n초등부실 Room 126-127'}
       ctaLabel="사역 신청하기"
       ctaHref="#"
       heroImageSrc="/img/elem-upper-classroom.jpg"
