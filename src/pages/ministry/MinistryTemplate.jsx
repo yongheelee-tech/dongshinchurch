@@ -46,7 +46,9 @@ export default function MinistryTemplate({
               </h1>
 
               {description ? (
-                <p className="text-base text-black mb-8 leading-relaxed">{description}</p>
+                <p className="text-base text-black mb-8 leading-relaxed whitespace-pre-line">
+                  {description}
+                </p>
               ) : null}
 
               {/* CTA Button */}
