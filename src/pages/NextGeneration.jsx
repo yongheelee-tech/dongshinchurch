@@ -3,23 +3,10 @@ import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { MINISTRIES } from '../constants/ministries'
 
 export default function NextGeneration() {
-  const ministries = [
-    { name: 'New Born - 자모부', link: '#' },
-    { name: 'Infant - 영아부', link: '#' },
-    { name: 'Toddler - 유아부', link: '/toddler' },
-    { name: 'Kinder - 유치부', link: '#' },
-    { name: 'Elem (Lower) - 유년부', link: '#' },
-    { name: 'Elem (Upper) - 초등부', link: '#' },
-    { name: 'Youth (Jr. High) - 중등부', link: '#' },
-    { name: 'Youth (High) - 고등부', link: '#' },
-    { name: 'E-College - 영어대학부', link: '#' },
-    { name: '청년부', link: '#' },
-    { name: '청장년부', link: '#' },
-    { name: '한국학교', link: '#' },
-    { name: '동신프리스쿨', link: '#' },
-  ]
+  const ministries = MINISTRIES.map((m) => ({ name: m.name, link: m.route }))
 
   // Animated Section Component
   const AnimatedSection = ({ title, children }) => {
@@ -83,7 +70,7 @@ export default function NextGeneration() {
   return (
     <div className="font-sans">
       <Header />
-      
+
       {/* Main Content */}
       <section className="bg-white pt-24 pb-12 md:pt-32 md:pb-16">
         <div className="container mx-auto px-4 md:px-[100px]">
