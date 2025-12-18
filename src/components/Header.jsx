@@ -18,8 +18,18 @@ export default function Header() {
 
   // 다음세대 dropdown item routes mapping
   const nextGenerationRoutes = {
+    'New Born - 자모부': '/newborn',
+    'Infant - 영아부': '/infant',
     'Toddler - 유아부': '/toddler',
-    // Add more specific routes here as pages are created
+    'Kinder - 유치부': '/kinder',
+    'Elem (Lower) - 유년부': '/elem-lower',
+    'Elem (Upper) - 초등부': '/elem-upper',
+    'Youth (Jr. High) - 중등부': '/youth-jr',
+    'Youth (High) - 고등부': '/youth-high',
+    'E-College - 영어대학부': '/ecollege',
+    '청년부': '/youngadult',
+    '청장년부': '/adult',
+    '동신프리스쿨': '/preschool',
   }
 
   // Dropdown item descriptions for subtitles
