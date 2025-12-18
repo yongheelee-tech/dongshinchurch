@@ -21,7 +21,7 @@ export default function WorshipSong() {
         
         {/* Text Overlay - Left side */}
         <div className="absolute inset-0 flex items-center z-10">
-          <div className="container mx-auto px-4 md:px-[100px] text-left max-w-5xl">
+          <div className="container mx-auto px-4 md:px-[100px] text-left">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
